@@ -1,0 +1,34 @@
+version: "2"
+fields:
+  - id: PIA_USERNAME
+    target:
+      type: environment
+      name: USER
+      service: pia
+    title: PIA Username
+    description: >-
+      PIA Username
+    secret: false
+    required: true
+
+  - id: PIA_PASSWORD
+    target:
+      type: environment
+      name: PASS
+      service: pia
+    title: PIA Password
+    description: >-
+      PIA Password
+    secret: true
+    required: true
+
+  - id: PIA_LOC
+    target:
+      type: environment
+      name: LOC
+      service: pia
+    title: PIA Location
+    description: >-
+      e.g. us_california, ca_ontario, swiss, japan (see readme)
+    secret: false
+    required: true

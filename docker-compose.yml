@@ -1,0 +1,50 @@
+version: "3.4"
+services:
+  squid:
+    build:
+      context: ./build/squid
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - "squid_etc:/usr/local/squid/etc"
+      - "squid_logs:/usr/local/squid/var/logs"
+    depends_on:
+      - pia
+    ports:
+      - 3128/tcp
+    image: "squid.pia-squid.public.dappnode.eth:0.1.0"
+  pia:
+    build:
+      context: ./build/pia
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.default.disable_ipv6=1
+      - net.ipv6.conf.all.disable_ipv6=1
+      - net.ipv6.conf.lo.disable_ipv6=1
+    environment:
+      - LOC=
+      - USER=
+      - PASS=
+      - LOCAL_NETWORK=
+      - KEEPALIVE=
+      - VPNDNS=
+      - PORT_FORWARDING=
+      - PORT_PERSIST=
+      - FIREWALL=
+      - EXIT_ON_FATAL=
+      - WG_USERSPACE=
+      - PIA_IP=
+      - PIA_CN=
+      - PIA_PORT=
+      - FWD_IFACE=
+      - PF_DEST_IP=
+      - NFTABLES=
+    image: "pia.pia-squid.public.dappnode.eth:0.1.0"
+volumes:
+  squid_etc: {}
+  squid_logs: {}

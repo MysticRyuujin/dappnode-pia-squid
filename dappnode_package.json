@@ -1,0 +1,29 @@
+{
+  "name": "pia-squid.public.dappnode.eth",
+  "version": "0.1.0",
+  "shortDescription": "PIA & Squid Proxy Server",
+  "description": "Private Internet Access (PIA) VPN Service & Squid Proxy Server",
+  "type": "service",
+  "mainService": "squid",
+  "author": "MysticRyuujin <MysticRyuujin@gmail.com> (https://github.com/MysticRyuujin)",
+  "contributors": [],
+  "categories": ["Developer tools", "Communications"],
+  "keywords": ["pia", "squid", "vpn", "proxy"],
+  "globalEnvs": {
+    "all": true
+  },
+  "backup": [],
+  "exposable": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MysticRyuujin/dappnode-pia-squid"
+  },
+  "bugs": {
+    "url": "https://github.com/MysticRyuujin/dappnode-pia-squid/issues"
+  },
+  "links": {
+    "gateway": "http://squid.pia-squid.public.dappnode:3128",
+    "homepage": "https://github.com/MysticRyuujin/dappnode-pia-squid"
+  },
+  "license": "GLP-3.0"
+}
